@@ -13,6 +13,8 @@ COPY Gemfile ./
 # Instala as Gems
 RUN bundle install
 # Copia nosso código para dentro do container
+COPY Gemfile ./
+# Seta o path das nossas gems
+ENV BUNDLE_PATH /gems
+# copia o código para dentro do container
 COPY . .
-# Roda nosso servidor
-CMD rackup config.ru -o 0.0.0.0
